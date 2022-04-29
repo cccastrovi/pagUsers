@@ -1,0 +1,30 @@
+<h1>Bienvenido de nuevo</h1>
+<p>Gracias por volver a tu sitio favorito, por favor llenar el formulario</p>
+<form action="" [formGroup]="loginForm" (ngSubmit)="authenticate()">
+    <div class="login-form-input">
+        <label>Email*</label>
+        <input type="email" placeholder="Email" formControlName="email">
+        <small class="bg-danger text-light mt-1 px-2 py-1 rounded"
+         *ngIf="(fm['email'].dirty || fm['email'].touched) && fm['email'].errors">
+            <ng-container [ngSwitch]="fm['email'].value">
+                <ng-container *ngSwitchCase="''">El email es requerido!</ng-container>
+                <ng-container *ngSwitchDefault="">El email es invalido!</ng-container>
+            </ng-container>
+        </small>
+    </div>
+    <div class="login-form-input">
+        <label>Contraseña</label>
+        <input type="password" placeholder="Constraseña" formControlName="password">
+        <small class="bg-danger text-light mt-1 px-2 py-1 rounded" *ngIf="(fm['password'].dirty || fm['password'].touched) && fm['password'].errors">
+            <ng-container [ngSwitch]="fm['password'].value">
+                <ng-container *ngSwitchCase="''">El password es requerido!</ng-container>
+                <ng-container *ngSwitchDefault="">El password debe de tener minimo 10 caracteres!</ng-container>
+            </ng-container>
+        </small>
+    </div>
+    <small>Olvide Constraseña</small>
+    <div class="login-form-buttons">
+        <button class="login-form-buttons__signup">Registrarse</button>
+        <button class="login-form-buttons__signin" type="submit" [disabled]="!loginForm.valid">iniciar Sesion</button>
+    </div>
+</form>

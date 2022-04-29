@@ -1,0 +1,4 @@
+export const IMAGES_ROUTES = {
+    BACKGROUND_LOGIN: 'RUTA DE LA IMAGEN',
+    LOGO: 'RUTA DE LA IMAGEN'
+}
